@@ -1,3 +1,33 @@
-h1 {
-    color: rgb(42, 49, 133)
+#calculator {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 80vh;
+    margin: 50px auto;
+    border-radius: 10px;
+    border: 5px solid green;
+}
+
+#display {
+    box-sizing: border-box;
+    height: 15%;
+    width: 100%;
+    border-bottom: 5px solid green;
+    padding: 40px 10px 5px;
+    text-align: right;
+}
+#buttons {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 85%;
+    width: 100%;
+}
+
+button {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 20px;
+    background-color: white;
+
 }
