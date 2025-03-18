@@ -13,6 +13,7 @@ const divide = (num1, num2) => {
 let number1 = ""
 let operator = null
 let number2 = ""
+let displayValue = 0
 
 const displayElement = document.querySelector("#display");
 const numberButtons = document.querySelectorAll(".number");
@@ -21,11 +22,11 @@ const equalsButton = document.querySelector(".equals");
 const clearButton = document.querySelector(".clear");
 const decimal = document.querySelector(".decimal");
 
+
 numberButtons.forEach((button) => {
     button.addEventListener("click", () => {
     number1 += button.value;
     displayElement.textContent = number1;
-    displayValue += number1;
     })
 });
 
@@ -57,6 +58,31 @@ operatorButtons.forEach((button) => {
 equalsButton.addEventListener("click", () => {
     parsedNumber1 = parseInt(number1);
     parsedNumber2 = parseInt(number2);
-    let calculatedResult = operate(parsedNumber1, parsedNumber2);
+    let calculatedResult = operate(parsedNumber2, parsedNumber1);
     displayElement.textContent = calculatedResult;
+    displayValue = calculatedResult;
+    number1 = displayValue;
 })
+
+clearButton.addEventListener("click", () => {
+    number1 = ""
+    operator = null
+    number2 = ""
+    displayValue = 0
+})
+
+decimal.addEventListener("click", () => {
+    if (operator === null) {
+        if (!number1.includes(".")) {
+            number1 += ".";
+            displayElement.textContent = number1;
+        }
+    }
+    if (operator !== null) {
+        if (!number1.includes(".")) {
+            number1 += ".";
+            displayElement.textContent = number1;
+        }
+    }
+})
+
